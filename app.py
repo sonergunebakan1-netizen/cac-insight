@@ -1,3 +1,5 @@
+import html
+import re
 import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
@@ -69,6 +71,12 @@ def couleur_points(pts, maxi):
     if part >= 0.4:
         return "#f39c12"
     return "#d73027"
+
+def mise_en_forme(texte):
+    """Rend le texte de l'IA sûr et lisible dans la boîte HTML."""
+    texte = html.escape(str(texte).strip())
+    texte = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", texte)
+    return texte.replace("\n\n", "<br><br>").replace("\n", "<br>")
 
 def commentaire_auto(r):
     """Résumé de secours si le commentaire IA est absent."""
@@ -200,7 +208,7 @@ with onglet_fiche:
     texte = r.get("Commentaire")
     if pd.isna(texte) or texte == "Commentaire indisponible.":
         texte = commentaire_auto(r)
-    st.markdown(f"<div class='comment'>{texte}</div>", unsafe_allow_html=True)
+    st.markdown(f"<div class='comment'>{mise_en_forme(texte)}</div>", unsafe_allow_html=True)
     st.caption("Commentaire rédigé par une IA générative (Gemini) à partir des seuls ratios "
                "calculés ci-dessus. À relire avec un regard d'analyste.")
 
