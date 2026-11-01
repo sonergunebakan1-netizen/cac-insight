@@ -113,7 +113,7 @@ Le PER est affiché mais **n'entre pas dans le score** : une banque évalue la c
 ## 🔁 Reproduire le projet
 
 1. Ouvrir `CAC_Insight.ipynb` dans [Google Colab](https://colab.research.google.com/).
-2. Créer une clé API Gemini gratuite sur [aistudio.google.com](https://aistudio.google.com/) et l'ajouter dans les **Secrets** de Colab (icône 🔑) sous le nom `GEMINI_API_KEY`.
+2. *(Facultatif)* Créer une clé API Gemini gratuite sur [aistudio.google.com](https://aistudio.google.com/) et l'ajouter dans les **Secrets** de Colab (icône 🔑) sous le nom `GEMINI_API_KEY`. Sans clé, le notebook fonctionne entièrement mais ne régénère pas les commentaires IA.
 3. Lancer **Exécution → Tout exécuter** (environ 5 minutes).
 4. Déposer le nouveau `cac40_scoring.csv` dans ce dépôt : l'application se met à jour automatiquement.
 
