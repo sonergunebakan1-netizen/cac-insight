@@ -125,6 +125,7 @@ Le PER est affiché mais **n'entre pas dans le score** : une banque évalue la c
 
 - **Périmètre :** banques, assurances et foncières sont exclues, car leurs bilans ne sont pas comparables.
 - **Données :** Yahoo Finance peut contenir des imprécisions ; un ratio atypique doit être vérifié dans le rapport annuel.
+- **Exercices décalés :** Pernod Ricard clôt son exercice en juin ; ses comptes (exercice clos en juin 2026) ne couvrent pas exactement la même période que ceux des autres entreprises (2025).
 - **Grille unique :** les mêmes seuils s'appliquent à tous les secteurs.
 - **Machine Learning :** le K-Means décrit des profils, il ne prédit rien.
 - **IA générative :** le commentaire peut contenir des imprécisions et doit être relu par un analyste.

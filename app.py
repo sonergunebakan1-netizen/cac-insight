@@ -117,8 +117,11 @@ st.markdown("""
 # En-tête
 # ------------------------------------------------------------------
 st.title("📊 CAC Insight")
+annee = int(df["Exercice"].mode()[0])
+decales = df.loc[df["Exercice"] != annee, "Entreprise"].tolist()
 st.caption("La santé financière des entreprises du CAC 40, notée comme en banque — "
-           f"comptes annuels {int(df['Exercice'].max())}")
+           f"comptes annuels {annee}"
+           + (f" (dernier exercice publié pour {', '.join(decales)}, clos en cours d'année)" if decales else ""))
 
 onglet_fiche, onglet_classement, onglet_methode = st.tabs(
     ["🔎 Fiche entreprise", "🏆 Classement CAC 40", "📘 Méthodologie"])
@@ -137,6 +140,7 @@ with onglet_fiche:
     st.markdown(
         f"<span class='badge'>🏷️ {SECTEURS.get(r['Entreprise'], 'Secteur n.d.')}</span>"
         f"<span class='badge'>📌 {r['Ticker']}</span>"
+        f"<span class='badge'>📅 Exercice {int(r['Exercice'])}</span>"
         f"<span class='badge'>🧩 Profil : {r['Profil']}</span>"
         f"<span class='badge'>🏅 {int(r['Rang'])}<sup>e</sup> sur {NB}</span>",
         unsafe_allow_html=True)
